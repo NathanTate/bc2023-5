@@ -21,7 +21,7 @@ app.get("/notes", (req, res) => {
     }
 });
 
-app.get("/", (req, res) =>{
+app.get("/UploadForm.html", (req, res) =>{
     res.sendFile(path.join(__dirname, 'static', 'UploadForm.html'));
 });
 
@@ -75,7 +75,7 @@ app.get("/notes/:note_name", (req, res) => {
         const note = notes.find((note) => note.name === note_name);
 
         if(note) {
-            res.status(200).json(note);
+            res.status(200).json(note.text);
         }
         else {
             res.status(404).send("Note was not found");
@@ -135,6 +135,10 @@ app.delete("/notes/:note_name", (req, res) => {
 
 app.listen(port, () => {
     console.log('Server is listening on port: ' + port);
+})
+
+app.get("/", (req, res) => {
+    res.send("Server is running");
 })
 
 
