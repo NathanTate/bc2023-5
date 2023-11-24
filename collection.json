@@ -50,13 +50,19 @@
 				"method": "POST",
 				"header": [],
 				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"note_name\": \"FirstNote\",\r\n    \"note\": \"Random text in first note\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "note_name",
+							"value": "ThirdNote",
+							"type": "text"
+						},
+						{
+							"key": "note",
+							"value": "Some text in third Note",
+							"type": "text"
 						}
-					}
+					]
 				},
 				"url": {
 					"raw": "http://localhost:8000/upload",
@@ -74,11 +80,18 @@
 		},
 		{
 			"name": "Get a Note",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
 				"url": {
-					"raw": "http://localhost:8000/notes/FirstNote",
+					"raw": "http://localhost:8000/notes/SecondNote",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -86,7 +99,7 @@
 					"port": "8000",
 					"path": [
 						"notes",
-						"FirstNote"
+						"SecondNote"
 					]
 				}
 			},
@@ -97,15 +110,6 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"text\": \"new text\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "http://localhost:8000/notes/FirstNote",
 					"protocol": "http",
