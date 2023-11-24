@@ -75,7 +75,7 @@ app.get("/notes/:note_name", (req, res) => {
         const note = notes.find((note) => note.name === note_name);
 
         if(note) {
-            res.status(200).json(note.text);
+            res.status(200).send(note.text);
         }
         else {
             res.status(404).send("Note was not found");
