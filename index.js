@@ -102,7 +102,7 @@ app.put("/notes/:note_name", (req, res) => {
         else {
             notes[noteIndex].text = new_text;
             fs.writeFileSync(notesPath, JSON.stringify(notes, null, 2));
-            res.status(204).send();
+            res.status(200).send();
         }
     }
     catch(err) {
